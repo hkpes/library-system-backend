@@ -13,4 +13,4 @@ COPY --from=build /app/target/LibraryManagerApi-1.0-SNAPSHOT.jar app.jar
 
 EXPOSE 9361
 
-ENTRYPOINT ["java", "-jar", "app.jar"]
+ENTRYPOINT ["java", "-Xmx350m", "-Xss512k", "-XX:MaxMetaspaceSize=100m", "-jar", "app.jar"]
