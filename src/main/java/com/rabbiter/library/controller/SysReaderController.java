@@ -39,7 +39,7 @@ public class SysReaderController {
         reader.setCheckStatus("0"); //未審核
         reader.setUserStatus("0");  //未啟用
         sysReaderService.saveReader(reader);
-        return ResultUtils.success("註冊成功!");
+        return ResultUtils.success("已註冊成功，待審批!");
     }
 
     //新增

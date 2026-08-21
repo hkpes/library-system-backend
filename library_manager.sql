@@ -20,19 +20,19 @@ SET FOREIGN_KEY_CHECKS = 0;
 -- ----------------------------
 DROP TABLE IF EXISTS `borrow_book`;
 CREATE TABLE `borrow_book`  (
-  `borrow_id` int(0) NOT NULL AUTO_INCREMENT COMMENT '編號',
-  `book_id` int(0) NULL DEFAULT NULL COMMENT '書本序號',
-  `reader_id` int(0) NULL DEFAULT NULL COMMENT '會員編號',
-  `borrow_time` datetime NULL DEFAULT NULL COMMENT '借書時間',
-  `return_time` datetime NULL DEFAULT NULL COMMENT '還書時間',
-  `apply_status` varchar(2) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NULL DEFAULT NULL COMMENT '0: 待審核 1： 已審核  2：拒絕',
-  `borrow_status` varchar(2) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NULL DEFAULT NULL COMMENT '0：審核中 1:在借中  2：已還  3：拒絕',
-  `return_status` varchar(2) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NULL DEFAULT NULL COMMENT '1: 正常還書 2：異常還書 3：丟失',
-  `excepion_text` varchar(128) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NULL DEFAULT NULL COMMENT '異常還書備註',
-  `apply_text` varchar(128) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NULL DEFAULT NULL COMMENT '審核拒絕備註',
-  PRIMARY KEY (`borrow_id`) USING BTREE,
-  INDEX `book_id`(`book_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 4 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_bin ROW_FORMAT = Dynamic;
+                                `borrow_id` INT(0) NOT NULL AUTO_INCREMENT COMMENT '編號',
+                                `book_id` INT(0) NULL DEFAULT NULL COMMENT '書本序號',
+                                `reader_id` INT(0) NULL DEFAULT NULL COMMENT '會員編號',
+                                `borrow_time` DATETIME NULL DEFAULT NULL COMMENT '借書時間',
+                                `return_time` DATETIME NULL DEFAULT NULL COMMENT '還書時間',
+                                `apply_status` VARCHAR(2) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NULL DEFAULT NULL COMMENT '0: 待審核 1： 已審核  2：拒絕',
+                                `borrow_status` VARCHAR(2) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NULL DEFAULT NULL COMMENT '0：審核中 1:在借中  2：已還  3：拒絕',
+                                `return_status` VARCHAR(2) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NULL DEFAULT NULL COMMENT '1: 正常還書 2：異常還書 3：丟失',
+                                `excepion_text` VARCHAR(128) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NULL DEFAULT NULL COMMENT '異常還書備註',
+                                `apply_text` VARCHAR(128) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NULL DEFAULT NULL COMMENT '審核拒絕備註',
+                                PRIMARY KEY (`borrow_id`) USING BTREE,
+                                INDEX `book_id`(`book_id`) USING BTREE
+) ENGINE = INNODB AUTO_INCREMENT = 4 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_bin ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of borrow_book
@@ -46,15 +46,15 @@ INSERT INTO `borrow_book` VALUES (3, 4, 3, '2024-03-24 16:35:43', '2024-03-31 00
 -- ----------------------------
 DROP TABLE IF EXISTS `sys_books`;
 CREATE TABLE `sys_books`  (
-  `book_id` int(0) NOT NULL AUTO_INCREMENT COMMENT '書本序號',
-  `category_id` int(0) NULL DEFAULT NULL COMMENT '分類編號',
-  `book_name` varchar(128) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NULL DEFAULT NULL COMMENT '書本名稱',
-  `book_place_num` varchar(128) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NULL DEFAULT NULL COMMENT '書本編號',
-  `book_auther` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NULL DEFAULT NULL COMMENT '作者',
-  `book_product` varchar(128) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NULL DEFAULT NULL COMMENT '出版社',
-  `book_store` int(0) NULL DEFAULT 0 COMMENT '庫存',
-  PRIMARY KEY (`book_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 564 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_bin ROW_FORMAT = Dynamic;
+                              `book_id` INT(0) NOT NULL AUTO_INCREMENT COMMENT '書本序號',
+                              `category_id` INT(0) NULL DEFAULT NULL COMMENT '分類編號',
+                              `book_name` VARCHAR(128) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NULL DEFAULT NULL COMMENT '書本名稱',
+                              `book_place_num` VARCHAR(128) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NULL DEFAULT NULL COMMENT '書本編號',
+                              `book_auther` VARCHAR(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NULL DEFAULT NULL COMMENT '作者',
+                              `book_product` VARCHAR(128) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NULL DEFAULT NULL COMMENT '出版社',
+                              `book_store` INT(0) NULL DEFAULT 0 COMMENT '庫存',
+                              PRIMARY KEY (`book_id`) USING BTREE
+) ENGINE = INNODB AUTO_INCREMENT = 564 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_bin ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of sys_books
@@ -627,11 +627,11 @@ INSERT INTO `sys_books` VALUES ('563', '18', 'Designing Your New Work Life', 'WL
 -- ----------------------------
 DROP TABLE IF EXISTS `sys_category`;
 CREATE TABLE `sys_category`  (
-  `category_id` int(0) NOT NULL AUTO_INCREMENT COMMENT '分類編號',
-  `category_name` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NULL DEFAULT NULL COMMENT '分類名稱',
-  `order_num` int(0) NULL DEFAULT NULL COMMENT '序號',
-  PRIMARY KEY (`category_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 19 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_bin ROW_FORMAT = Dynamic;
+                                 `category_id` INT(0) NOT NULL AUTO_INCREMENT COMMENT '分類編號',
+                                 `category_name` VARCHAR(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NULL DEFAULT NULL COMMENT '分類名稱',
+                                 `order_num` INT(0) NULL DEFAULT NULL COMMENT '序號',
+                                 PRIMARY KEY (`category_id`) USING BTREE
+) ENGINE = INNODB AUTO_INCREMENT = 19 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_bin ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of sys_category
@@ -660,21 +660,21 @@ INSERT INTO `sys_category` VALUES (18, '工作生活平衡 Work Life Balance', 1
 -- ----------------------------
 DROP TABLE IF EXISTS `sys_menu`;
 CREATE TABLE `sys_menu`  (
-  `menu_id` int(0) NOT NULL AUTO_INCREMENT COMMENT '選單編號',
-  `parent_id` int(0) NULL DEFAULT NULL COMMENT '上層選單編號',
-  `title` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NULL DEFAULT NULL COMMENT '選單名稱',
-  `code` varchar(36) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NULL DEFAULT NULL COMMENT '權限字段',
-  `name` varchar(36) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NULL DEFAULT NULL COMMENT '路由name',
-  `path` varchar(36) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NULL DEFAULT NULL COMMENT '路由path',
-  `url` varchar(128) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NULL DEFAULT NULL COMMENT '組件路徑',
-  `type` varchar(2) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NULL DEFAULT NULL COMMENT '類型(0 目錄 1選單，2按鈕)',
-  `icon` varchar(36) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NULL DEFAULT NULL COMMENT '選單圖標',
-  `parent_name` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NULL DEFAULT NULL COMMENT '上層選單名稱',
-  `order_num` int(0) NULL DEFAULT NULL COMMENT '序號',
-  `create_time` datetime NULL DEFAULT NULL COMMENT '創建時間',
-  `update_time` datetime NULL DEFAULT NULL COMMENT '更新時間',
-  PRIMARY KEY (`menu_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 60 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_bin ROW_FORMAT = Dynamic;
+                             `menu_id` INT(0) NOT NULL AUTO_INCREMENT COMMENT '選單編號',
+                             `parent_id` INT(0) NULL DEFAULT NULL COMMENT '上層選單編號',
+                             `title` VARCHAR(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NULL DEFAULT NULL COMMENT '選單名稱',
+                             `code` VARCHAR(36) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NULL DEFAULT NULL COMMENT '權限字段',
+                             `name` VARCHAR(36) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NULL DEFAULT NULL COMMENT '路由name',
+                             `path` VARCHAR(36) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NULL DEFAULT NULL COMMENT '路由path',
+                             `url` VARCHAR(128) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NULL DEFAULT NULL COMMENT '組件路徑',
+                             `type` VARCHAR(2) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NULL DEFAULT NULL COMMENT '類型(0 目錄 1選單，2按鈕)',
+                             `icon` VARCHAR(36) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NULL DEFAULT NULL COMMENT '選單圖標',
+                             `parent_name` VARCHAR(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NULL DEFAULT NULL COMMENT '上層選單名稱',
+                             `order_num` INT(0) NULL DEFAULT NULL COMMENT '序號',
+                             `create_time` DATETIME NULL DEFAULT NULL COMMENT '創建時間',
+                             `update_time` DATETIME NULL DEFAULT NULL COMMENT '更新時間',
+                             PRIMARY KEY (`menu_id`) USING BTREE
+) ENGINE = INNODB AUTO_INCREMENT = 60 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_bin ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of sys_menu
@@ -735,12 +735,12 @@ INSERT INTO `sys_menu` VALUES (54, 15, '會員名單----重置密碼功能', 'sy
 -- ----------------------------
 DROP TABLE IF EXISTS `sys_notice`;
 CREATE TABLE `sys_notice`  (
-  `notice_id` int(0) NOT NULL AUTO_INCREMENT COMMENT '編號',
-  `notice_title` varchar(128) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NULL DEFAULT NULL COMMENT '標題',
-  `notice_content` text CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NULL COMMENT '内容',
-  `create_time` datetime NULL DEFAULT NULL COMMENT '創建時間',
-  PRIMARY KEY (`notice_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_bin ROW_FORMAT = Dynamic;
+                               `notice_id` INT(0) NOT NULL AUTO_INCREMENT COMMENT '編號',
+                               `notice_title` VARCHAR(128) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NULL DEFAULT NULL COMMENT '標題',
+                               `notice_content` TEXT CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NULL COMMENT '内容',
+                               `create_time` DATETIME NULL DEFAULT NULL COMMENT '創建時間',
+                               PRIMARY KEY (`notice_id`) USING BTREE
+) ENGINE = INNODB AUTO_INCREMENT = 3 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_bin ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of sys_notice
@@ -752,17 +752,17 @@ INSERT INTO `sys_notice` VALUES (1, 'HKPES網上書本借閱正式啟用', '歡�
 -- ----------------------------
 DROP TABLE IF EXISTS `sys_reader`;
 CREATE TABLE `sys_reader`  (
-  `reader_id` int(0) NOT NULL AUTO_INCREMENT COMMENT '會員編號',
-  `username` varchar(36) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NULL DEFAULT NULL COMMENT '姓名',
-  `sex` varchar(2) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NULL DEFAULT NULL COMMENT '性别',
-  `phone` varchar(15) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NULL DEFAULT NULL COMMENT '電話',
-  `email` VARCHAR(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NULL DEFAULT NULL COMMENT '電郵',
-  `password` varchar(128) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NULL DEFAULT NULL COMMENT '密碼',
-  `type` varchar(2) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NULL DEFAULT NULL COMMENT '類別',
-  `check_status` varchar(2) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NULL DEFAULT NULL COMMENT '審核狀態 0：未審核  1：已審核',
-  `user_status` varchar(2) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NULL DEFAULT NULL COMMENT '會員狀態 0:停用  1：啟用',
-  PRIMARY KEY (`reader_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 4 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_bin ROW_FORMAT = Dynamic;
+                               `reader_id` INT(0) NOT NULL AUTO_INCREMENT COMMENT '會員編號',
+                               `username` VARCHAR(36) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NULL DEFAULT NULL COMMENT '姓名',
+                               `sex` VARCHAR(2) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NULL DEFAULT NULL COMMENT '性别',
+                               `phone` VARCHAR(15) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NULL DEFAULT NULL COMMENT '電話',
+                               `email` VARCHAR(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NULL DEFAULT NULL COMMENT '電郵',
+                               `password` VARCHAR(128) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NULL DEFAULT NULL COMMENT '密碼',
+                               `type` VARCHAR(2) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NULL DEFAULT NULL COMMENT '類別',
+                               `check_status` VARCHAR(2) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NULL DEFAULT NULL COMMENT '審核狀態 0：未審核  1：已審核',
+                               `user_status` VARCHAR(2) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NULL DEFAULT NULL COMMENT '會員狀態 0:停用  1：啟用',
+                               PRIMARY KEY (`reader_id`) USING BTREE
+) ENGINE = INNODB AUTO_INCREMENT = 4 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_bin ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of sys_reader
@@ -778,11 +778,11 @@ ALTER TABLE `sys_reader` ADD UNIQUE INDEX `uk_phone` (`phone`);
 -- ----------------------------
 DROP TABLE IF EXISTS `sys_reader_role`;
 CREATE TABLE `sys_reader_role`  (
-  `reader_role_id` int(0) NOT NULL AUTO_INCREMENT COMMENT '編號',
-  `reader_id` int(0) NULL DEFAULT NULL COMMENT '會員編號',
-  `role_id` int(0) NOT NULL COMMENT '身份編號',
-  PRIMARY KEY (`reader_role_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 46 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_bin ROW_FORMAT = Dynamic;
+                                    `reader_role_id` INT(0) NOT NULL AUTO_INCREMENT COMMENT '編號',
+                                    `reader_id` INT(0) NULL DEFAULT NULL COMMENT '會員編號',
+                                    `role_id` INT(0) NOT NULL COMMENT '身份編號',
+                                    PRIMARY KEY (`reader_role_id`) USING BTREE
+) ENGINE = INNODB AUTO_INCREMENT = 46 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_bin ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of sys_reader_role
@@ -796,14 +796,14 @@ INSERT INTO `sys_reader_role` VALUES (27, 3, 5);
 -- ----------------------------
 DROP TABLE IF EXISTS `sys_role`;
 CREATE TABLE `sys_role`  (
-  `role_id` int(0) NOT NULL AUTO_INCREMENT COMMENT '身份編號',
-  `role_name` varchar(36) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NULL DEFAULT NULL COMMENT '身份名稱',
-  `role_type` varchar(2) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NULL DEFAULT NULL COMMENT '身份類別 1：系統帳戶  2：會員',
-  `remark` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NULL DEFAULT NULL COMMENT '備註',
-  `create_time` datetime NULL DEFAULT NULL COMMENT '創建時間',
-  `update_time` datetime NULL DEFAULT NULL COMMENT '更新時間',
-  PRIMARY KEY (`role_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 8 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_bin ROW_FORMAT = Dynamic;
+                             `role_id` INT(0) NOT NULL AUTO_INCREMENT COMMENT '身份編號',
+                             `role_name` VARCHAR(36) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NULL DEFAULT NULL COMMENT '身份名稱',
+                             `role_type` VARCHAR(2) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NULL DEFAULT NULL COMMENT '身份類別 1：系統帳戶  2：會員',
+                             `remark` VARCHAR(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NULL DEFAULT NULL COMMENT '備註',
+                             `create_time` DATETIME NULL DEFAULT NULL COMMENT '創建時間',
+                             `update_time` DATETIME NULL DEFAULT NULL COMMENT '更新時間',
+                             PRIMARY KEY (`role_id`) USING BTREE
+) ENGINE = INNODB AUTO_INCREMENT = 8 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_bin ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of sys_role
@@ -817,11 +817,11 @@ INSERT INTO `sys_role` VALUES (5, '會員', '2', '會員身份', '2022-02-15 15:
 -- ----------------------------
 DROP TABLE IF EXISTS `sys_role_menu`;
 CREATE TABLE `sys_role_menu`  (
-  `role_menu_id` int(0) NOT NULL AUTO_INCREMENT COMMENT '編號',
-  `role_id` int(0) NULL DEFAULT NULL COMMENT '身份編號',
-  `menu_id` int(0) NULL DEFAULT NULL COMMENT '選單編號',
-  PRIMARY KEY (`role_menu_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 740 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_bin ROW_FORMAT = Dynamic;
+                                  `role_menu_id` INT(0) NOT NULL AUTO_INCREMENT COMMENT '編號',
+                                  `role_id` INT(0) NULL DEFAULT NULL COMMENT '身份編號',
+                                  `menu_id` INT(0) NULL DEFAULT NULL COMMENT '選單編號',
+                                  PRIMARY KEY (`role_menu_id`) USING BTREE
+) ENGINE = INNODB AUTO_INCREMENT = 740 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_bin ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of sys_role_menu
@@ -926,22 +926,22 @@ INSERT INTO `sys_role_menu` VALUES (739, 2, 46);
 -- ----------------------------
 DROP TABLE IF EXISTS `sys_user`;
 CREATE TABLE `sys_user`  (
-  `user_id` int(0) NOT NULL AUTO_INCREMENT COMMENT '帳戶編號',
-  `username` varchar(36) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NULL DEFAULT NULL COMMENT '登入帳戶',
-  `password` varchar(128) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NULL DEFAULT NULL COMMENT '登入密碼',
-  `phone` varchar(13) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NULL DEFAULT NULL COMMENT '帳戶電話',
-  `email` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NULL DEFAULT NULL COMMENT '電郵',
-  `sex` varchar(2) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NULL DEFAULT NULL COMMENT '0:男 1：女',
-  `is_admin` varchar(2) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NULL DEFAULT NULL COMMENT '是否為系統總管 1：是 0：否',
-  `is_account_non_expired` tinyint(0) NULL DEFAULT NULL COMMENT '帳戶是否過期(1 未過期，0已過期)',
-  `is_account_non_locked` tinyint(0) NULL DEFAULT NULL COMMENT '帳戶是否被鎖定(1 未鎖定，0已鎖定)',
-  `is_credentials_non_expired` tinyint(0) NULL DEFAULT NULL COMMENT '密碼是否過期(1 未過期，0已過期)',
-  `is_enabled` tinyint(0) NULL DEFAULT NULL COMMENT '帳戶是否可用(1 可用，0 刪除賬戶)',
-  `nick_name` varchar(36) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NULL DEFAULT NULL COMMENT '姓名',
-  `create_time` datetime NULL DEFAULT NULL COMMENT '創建時間',
-  `update_time` datetime NULL DEFAULT NULL COMMENT '更新時間',
-  PRIMARY KEY (`user_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 12 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_bin ROW_FORMAT = Dynamic;
+                             `user_id` INT(0) NOT NULL AUTO_INCREMENT COMMENT '帳戶編號',
+                             `username` VARCHAR(36) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NULL DEFAULT NULL COMMENT '登入帳戶',
+                             `password` VARCHAR(128) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NULL DEFAULT NULL COMMENT '登入密碼',
+                             `phone` VARCHAR(13) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NULL DEFAULT NULL COMMENT '帳戶電話',
+                             `email` VARCHAR(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NULL DEFAULT NULL COMMENT '電郵',
+                             `sex` VARCHAR(2) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NULL DEFAULT NULL COMMENT '0:男 1：女',
+                             `is_admin` VARCHAR(2) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NULL DEFAULT NULL COMMENT '是否為系統總管 1：是 0：否',
+                             `is_account_non_expired` TINYINT(0) NULL DEFAULT NULL COMMENT '帳戶是否過期(1 未過期，0已過期)',
+                             `is_account_non_locked` TINYINT(0) NULL DEFAULT NULL COMMENT '帳戶是否被鎖定(1 未鎖定，0已鎖定)',
+                             `is_credentials_non_expired` TINYINT(0) NULL DEFAULT NULL COMMENT '密碼是否過期(1 未過期，0已過期)',
+                             `is_enabled` TINYINT(0) NULL DEFAULT NULL COMMENT '帳戶是否可用(1 可用，0 刪除賬戶)',
+                             `nick_name` VARCHAR(36) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NULL DEFAULT NULL COMMENT '姓名',
+                             `create_time` DATETIME NULL DEFAULT NULL COMMENT '創建時間',
+                             `update_time` DATETIME NULL DEFAULT NULL COMMENT '更新時間',
+                             PRIMARY KEY (`user_id`) USING BTREE
+) ENGINE = INNODB AUTO_INCREMENT = 12 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_bin ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of sys_user
@@ -954,11 +954,11 @@ INSERT INTO `sys_user` VALUES (9, 'admin', 'e10adc3949ba59abbe56e057f20f883e', '
 -- ----------------------------
 DROP TABLE IF EXISTS `sys_user_role`;
 CREATE TABLE `sys_user_role`  (
-  `user_role_id` int(0) NOT NULL AUTO_INCREMENT COMMENT '編號',
-  `user_id` int(0) NULL DEFAULT NULL COMMENT '帳戶編號',
-  `role_id` int(0) NULL DEFAULT NULL COMMENT '身份編號',
-  PRIMARY KEY (`user_role_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 41 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_bin ROW_FORMAT = Dynamic;
+                                  `user_role_id` INT(0) NOT NULL AUTO_INCREMENT COMMENT '編號',
+                                  `user_id` INT(0) NULL DEFAULT NULL COMMENT '帳戶編號',
+                                  `role_id` INT(0) NULL DEFAULT NULL COMMENT '身份編號',
+                                  PRIMARY KEY (`user_role_id`) USING BTREE
+) ENGINE = INNODB AUTO_INCREMENT = 41 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_bin ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of sys_user_role

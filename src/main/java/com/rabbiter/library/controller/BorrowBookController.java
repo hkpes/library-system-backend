@@ -42,6 +42,18 @@ public class BorrowBookController {
         return ResultUtils.error("審核失敗!");
     }
 
+    @PostMapping("/refuseBook")
+    @Auth
+    public ResultVo refuseBook(@RequestBody BorrowBook borrowBook) {
+        borrowBook.setBorrowStatus("3");
+        borrowBook.setApplyStatus("2");
+        boolean b = borrowBookService.updateById(borrowBook);
+        if (b) {
+            return ResultUtils.success("已拒絕此借閱申請!");
+        }
+        return ResultUtils.error("操作失敗!");
+    }
+
     @PostMapping
     @Auth
     public ResultVo borrow(@RequestBody BorrowParm parm, HttpServletRequest request) {
@@ -52,7 +64,7 @@ public class BorrowBookController {
         Claims claims = jwtUtils.getClaimsFromToken(token);
         String userType = (String) claims.get("userType");
         borrowBookService.borrow(parm, userType);
-        return ResultUtils.success("借書成功!");
+        return ResultUtils.success("已成功遞交，待審批!");
     }
 
     //還書記錄
